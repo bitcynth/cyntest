@@ -13,7 +13,9 @@ var buildVersion string
 var buildTime string
 
 type indexPageData struct {
-	Hostname string
+	Hostname     string
+	BuildTime    string
+	BuildVersion string
 }
 
 func main() {
@@ -24,7 +26,9 @@ func main() {
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		data := indexPageData{
-			Hostname: hostname,
+			Hostname:     hostname,
+			BuildTime:    buildTime,
+			BuildVersion: buildVersion,
 		}
 		indexTmpl.Execute(w, data)
 	})
