@@ -1,2 +1,2 @@
 # CynTest
-[![Build Status](https://ci.qs.nu/job/cyntest/badge/icon)](https://ci.qs.nu/job/cyntest/)
+[![Build Status](https://ci.qs.nu/buildStatus/icon?job=cyntest)](https://ci.qs.nu/job/cyntest/)
