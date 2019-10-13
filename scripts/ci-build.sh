@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 tag="$(git rev-parse --short HEAD)-$BUILD_NUMBER"
 
 docker build -f Dockerfile -t bitcynth/cyntest:$tag .
