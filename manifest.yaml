@@ -1,0 +1,35 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: cyntest-service
+spec:
+  selector:
+    app: cyntest
+  ports:
+  - protocol: "TCP"
+    port: 8080
+    targetPort: 5000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyntest
+spec:
+  selector:
+    matchLabels:
+      app: cyntest
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: cyntest
+    spec:
+      containers:
+      - name: cyntest
+        image: bitcynth/cyntest:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
