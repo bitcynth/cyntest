@@ -9,6 +9,8 @@ time=$(date +'%Y-%m-%d_%T')
 /usr/local/go/bin/go build -o cyntest -ldflags "-X main.buildVersion=$version -X main.buildTime=$time" ./src/
 
 docker build -f Dockerfile -t bitcynth/cyntest:$tag .
+docker tag bitcynth/cyntest:$tag bitcynth/cyntest:latest
 docker push bitcynth/cyntest:$tag
+docker push bitcynth/cyntest:latest
 
 kubectl set image deployment cyntest cyntest=bitcynth/cyntest:$tag
